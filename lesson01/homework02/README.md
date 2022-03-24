@@ -54,7 +54,7 @@
 	On address: {{ HOST }}:3001/metrics - external port of second container, we can see the metrics of dd task wich running in first container
 8) Setup host for run prometheus
 9) Install docker: please, visit to https://docs.docker.com/engine/install/centos/
-10)Create prometheus config file prometheus.yml:
+10) Create prometheus config file prometheus.yml:
 	```
 		global:
 		  scrape_interval: 15s
@@ -75,9 +75,9 @@
 				  - "ec2-15-188-227-203.eu-west-3.compute.amazonaws.com:3001"
 	```
 	Set ```interval``` and ```targets``` of our exporter.
-11)Run prometheus in docker with our config file:
+11) Run prometheus in docker with our config file:
 	```docker run -p 9090:9090 --volume=/tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus  --config.file=/etc/prometheus/prometheus.yml```
-12)Execute our metric dd_obtained_bytes_total
+12) Execute our metric dd_obtained_bytes_total
 
 In graph we can see our metric
 
