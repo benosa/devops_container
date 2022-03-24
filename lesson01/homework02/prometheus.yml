@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Self
+  - job_name: "prometheus-server"
+    static_configs:
+      - targets:
+          - "localhost:9090"
+
+  # Python example
+  - job_name: "dd"
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+          - "ec2-15-188-227-203.eu-west-3.compute.amazonaws.com:3001"
