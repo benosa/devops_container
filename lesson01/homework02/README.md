@@ -1,13 +1,13 @@
-** Steps to reproduce **
+## Steps to reproduce ##
 
 1) Setup host container
 2) Install docker: please, visit to https://docs.docker.com/engine/install/centos/
 3) Run first docker container: 
-	docker run --ipc=shareable -v ///tmp --name web -p 3000:80 -it --rm  --blkio-weight 1000 ubuntu /bin/bash 
+	```docker run --ipc=shareable -v ///tmp --name web -p 3000:80 -it --rm  --blkio-weight 1000 ubuntu /bin/bash```
 4) Run second docker container with python: 
-	docker run -it --ipc=container:web --volumes-from web -p 3001:80 --rm --pid container:web python /bin/bash
+	```docker run -it --ipc=container:web --volumes-from web -p 3001:80 --rm --pid container:web python /bin/bash```
 5) Run dd task in first container:
-	dd if=/dev/urandom of=/file.tmp bs=1024 count=1000000 oflag=direct 2> /tmp/stderr
+	```dd if=/dev/urandom of=/file.tmp bs=1024 count=1000000 oflag=direct 2> /tmp/stderr```
 	
 	
 6) Create python exporter for prometheus:
@@ -50,7 +50,7 @@
 	```
 	
 7) Run exporter:
-	python ./dd_exporter.py
+	```python ./dd_exporter.py```
 	On address: {{ HOST }}:3001/metrics - external port of second container, we can see the metrics of dd task wich running in first container
 8) Setup host for run prometheus
 9) Install docker: please, visit to https://docs.docker.com/engine/install/centos/
@@ -76,7 +76,7 @@
 	```
 	Set ```interval``` and ```targets``` of our exporter.
 11)Run prometheus in docker with our config file:
-	docker run -p 9090:9090 --volume=/tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus  --config.file=/etc/prometheus/prometheus.yml
+	```docker run -p 9090:9090 --volume=/tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus  --config.file=/etc/prometheus/prometheus.yml```
 12)Execute our metric dd_obtained_bytes_total
 
 In graph we can see our metric
