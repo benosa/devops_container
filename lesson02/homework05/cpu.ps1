@@ -1,7 +1,7 @@
 $OS = "Windows"
 $HOSTNAME = (hostname)
 $MEASURE = "%"
-
+$Counters = (Get-Counter -ListSet Processor).PathsWithInstances | ? {$_ -match "% Processor Time"}
 $CPU = $(Get-Counter $Counters |
         Select-Object -ExpandProperty CounterSamples |
         Select-Object InstanceName, CookedValue |
