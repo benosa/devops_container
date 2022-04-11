@@ -7,12 +7,12 @@
 Оценка:1
 -------------------------
 
-runing_two_containers.png - Скрин терминала, с отображением списка, запущенных контейнеров.
+```runing_two_containers.png``` - Скрин терминала, с отображением списка, запущенных контейнеров.
 
-show_one_network_namespace.png - Скрин терминала, отображающий созданный общий network namespace
+```show_one_network_namespace.png``` - Скрин терминала, отображающий созданный общий network namespace
 
-running_windows_telegraf.png - Скрин терминала, отображающий запущенный Windows Telegraf.
+```running_windows_telegraf.png``` - Скрин терминала, отображающий запущенный Windows Telegraf.
 
-cpu_metrics_custom_dashboard.png - Скрин терминала, отображающий информацию по ЦПУ и памяти с отображением на дашборде.
+```cpu_metrics_custom_dashboard.png``` - Скрин терминала, отображающий информацию по ЦПУ и памяти с отображением на дашборде.
 
-imported_dashboard_from_store.png - Скрин терминала, отображающий импортированный дашбоард из store
+```imported_dashboard_from_store.png``` - Скрин терминала, отображающий импортированный дашбоард из store
